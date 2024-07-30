@@ -2,6 +2,7 @@ import React from 'react'
 import chien from '../assets/chien.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'; 
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import { faClinicMedical } from '@fortawesome/free-solid-svg-icons';
 import './Accueil.css';
@@ -36,7 +37,15 @@ export default function Accueuil() {
             </div>
           </div>
         </div>
-        <h1>la suite</h1>
+        <div className="deux">
+        <div className="icon2">
+        <img src="https://www.veterinaireac.fr/wp-content/uploads/2022/11/LogoCarrel-1200x1200.png" className='iconn' alt="Waf waf"/>
+        </div>
+        <div className="sous-titre">
+            <p className='slogan'>Le cabinet Vétérinaire DoctiVéto à Paris </p>
+          </div>
+        </div>
+
       </div>
     </div>
   );
