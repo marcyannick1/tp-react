@@ -111,7 +111,75 @@ app.delete('/cabinet/:id', async (req, res) => {
             where: {id: parseInt(id)}
         })
 
-        res.status(200).json(cabinet)
+        res.status(200).send("Cabinet supprimé avec succès")
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
+app.post('/animal', async (req, res) => {
+    const {description, race, poids, taille, userId, cabinetId} = req.body;
+
+    try {
+        const animal = await prisma.animal.create({
+            data: {
+                description,
+                race,
+                poids,
+                taille,
+                userId,
+                cabinetId
+            }
+        })
+        res.status(201).json(animal)
+    } catch (e) {
+        console.log(e)
+        res.status(500).json(e)
+    }
+})
+
+app.get('/animal/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const animal = await prisma.animal.findUnique({
+            where: {id: parseInt(id)},
+        })
+        animal ?
+            res.status(200).json(animal) :
+            res.status(404).send("Aucun animal trouvé")
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
+app.put('/animal/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const animal = await prisma.animal.update({
+            where: {id: parseInt(id)},
+            data: req.body,
+        })
+
+        res.status(200).json(animal)
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
+app.delete('/animal/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const animal = await prisma.animal.delete({
+            where: {id: parseInt(id)}
+        })
+
+        res.status(200).send("Animal supprimé avec succès")
     } catch (e) {
         console.error(e)
         res.status(500).json(e)
