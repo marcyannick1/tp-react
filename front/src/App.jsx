@@ -18,21 +18,11 @@ function App() {
       <Routes>
         <Route path="/accueuil" element={<Accueuil />} />
         <Route path="/ajoutcab" element={<AjoutCab />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/Connection" element={<Connection />}/>
+        <Route path="/Register" element={<Register />}/>
       </Routes>
-    <Header />
-
       
-      <main>
-        <Routes>
-          <Route path="/accueuil" element={<Accueuil />}/>
-          <Route path="/ajoutcab" element={<AjoutCab />}/>
-          <Route path="/Connection" element={<Connection />}/>
-          <Route path="/Register" element={<Register />}/>
-
-
-        </Routes>
-      </main>
-
       <Footer />
     </>
   );
