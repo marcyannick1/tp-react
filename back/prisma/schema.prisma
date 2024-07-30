@@ -26,12 +26,12 @@ model Animal {
   id          Int     @id @default(autoincrement())
   description String
   race        String
-  poids       String
-  taille      String
+  poids       Float
+  taille      Float
   user        User    @relation(fields: [userId], references: [id])
   userId      Int
-  cabinet     Cabinet @relation(fields: [cabinetId], references: [id])
-  cabinetId   Int
+  cabinet     Cabinet? @relation(fields: [cabinetId], references: [id], onDelete: SetNull)
+  cabinetId   Int?
 }
 
 model Cabinet {
