@@ -7,7 +7,6 @@ import { Link, Route, Routes } from "react-router-dom";
 const Footer = () => {
   return (
     <footer>
-      <div>Footer</div>
     <div>
       <p>© 2024 DoctiVéto. Tous droits réservés.</p>
       <p>
