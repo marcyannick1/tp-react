@@ -13,14 +13,8 @@ import "./App.css";
 function App() {
   return (
     <>
-      <nav>
-        <Link to={"/accueuil"}>Accueuil</Link>
-        <Link to={"/ajoutcab"}>AjoutCab</Link>
-        <Link to={"/Connection"}>Connection</Link>
-        <Link to={"/Register"}>Register</Link>
+    <Header />
 
-
-      </nav>
       
       <main>
         <Routes>
