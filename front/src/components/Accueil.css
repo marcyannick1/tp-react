@@ -1,0 +1,101 @@
+*{
+    overflow: auto;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 40px;
+    margin: auto;
+  background-color: #1a5e78;
+    width: 85%;
+    height: auto;
+    border-radius: 10px;
+    color: white;
+
+}
+.image{
+    width: 50%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.titre{
+    /* background-color: rebeccapurple; */
+    width: 60%;
+    padding: 50px;
+}
+
+.navbar-location {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 45px;
+  }
+  
+  .location-icon {
+    margin-right: 8px;
+    font-size: 40px;
+     background-color: #0f3443;
+     padding: 15px 20px;
+     border-radius: 100%;
+  }
+
+  /* StylishButton.css */
+.stylish-button {
+    background-color: #0f3443;
+
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: auto;
+  }
+  
+  .stylish-button .paw-icon {
+    margin-right: 10px;
+  }
+  
+  .stylish-button:hover {
+    color: #1a5e78;
+    background-color: white;
+
+  }
+/* AddClinicButton.css */
+.add-clinic-button {
+    color: #1a5e78;
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-clinic-button .clinic-icon {
+    margin-right: 10px;
+  }
+  
+  .add-clinic-button:hover {
+    background-color: #17536a;
+    color: white;
+  }
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin: auto;
+}  
