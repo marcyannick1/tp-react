@@ -2,6 +2,7 @@ import React from 'react'
 import './header.css'
 import Accueuil from "../Accueuil";
 import AjoutCab from "../AjoutCab";
+import Contact from "../Contact";
 
 import { Link, Route, Routes } from "react-router-dom";
 
@@ -17,9 +18,10 @@ export default function Header() {
                 <ul>
                     <li><Link to={"/accueuil"}>Accueuil</Link></li>
                     <li><Link to={"/ajoutcab"}>AjoutCab</Link></li>
+                    
 
                     <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><Link to={"/contact"}>Contact</Link></li>
                 </ul>
             </nav>
             <div class="contact">

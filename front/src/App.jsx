@@ -5,6 +5,7 @@ import Accueuil from "./components/Accueuil";
 import AjoutCab from "./components/AjoutCab";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import Contact from "./components/Contact";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/accueuil" element={<Accueuil />} />
         <Route path="/ajoutcab" element={<AjoutCab />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </>
