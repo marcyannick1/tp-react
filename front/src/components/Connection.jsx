@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faUserPlus, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import './Connection.css';
-import chien from '../assets/chien.jpeg';
+import chien from '../assets/chien5.jpeg';
 
 
 export default function Connection() {
@@ -17,7 +17,7 @@ export default function Connection() {
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" /><br />
           <input type="checkbox" /><span>Remember me</span>
-          <a href="#">Forgot password?</a>
+          <a href="#">Forgot password?</a><br></br>
           <button>Log in</button>
           <hr />
           <p>Or Connect With</p>
