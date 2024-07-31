@@ -71,6 +71,18 @@ app.post('/cabinet', async (req, res) => {
     }
 })
 
+app.get('/cabinet', async (req, res) => {
+    try {
+        const cabinets = await prisma.cabinet.findMany()
+        cabinets ?
+            res.status(200).json(cabinets) :
+            res.status(404).send("Aucun cabinet trouvé")
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
 app.get('/cabinet/:id', async (req, res) => {
     const {id} = req.params;
 
@@ -135,6 +147,18 @@ app.post('/animal', async (req, res) => {
         res.status(201).json(animal)
     } catch (e) {
         console.log(e)
+        res.status(500).json(e)
+    }
+})
+
+app.get('/animal', async (req, res) => {
+    try {
+        const animaux = await prisma.animal.findMany()
+        animaux ?
+            res.status(200).json(animaux) :
+            res.status(404).send("Aucun animal trouvé")
+    } catch (e) {
+        console.error(e)
         res.status(500).json(e)
     }
 })
