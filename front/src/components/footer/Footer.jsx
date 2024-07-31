@@ -20,9 +20,7 @@ const Footer = () => {
       </p>
       <p>
       <Link to={"/ajoutCab"}>Ajouter un cabinet !</Link>
-      <Routes>
-          <Route path="/ajoutCab" element={<ajoutCab />}/>
-      </Routes>
+
 
       </p>
     </div>
