@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
+import Service from '../Service';
+import Connection from '../Connection';
 import AjoutCab from "../AjoutCab";
 import Contact from "../Contact";
 import { faHome,faConciergeBell } from '@fortawesome/free-solid-svg-icons';
@@ -28,7 +30,7 @@ export default function Header() {
                     <li><Link to={"/accueuil"}><FontAwesomeIcon icon={faHome} className="" />  Acceuil</Link></li>
                     <li><Link to={"/ajoutcab"}> <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />  Cabinet</Link></li>
 
-                    <li><a href="#"><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</a></li>
+                    <li><Link to={"/Service"}><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</Link></li>
                     <li><Link to={"/contact"}><FontAwesomeIcon icon={faPhone} className="nav-icon" />  Contact</Link></li>
                 </ul>
             </nav>
@@ -44,7 +46,7 @@ export default function Header() {
         <div className="dropdown-menu">
           <div className="dropdown-item">
             <FontAwesomeIcon icon={faSignInAlt} />
-            <span>Se connecter</span>
+            <Link className="nav-icons"  to={"/connection"}><span>Se Connecter</span></Link>
           </div>
           <div className="dropdown-item">
             <FontAwesomeIcon icon={faSignOutAlt} />
@@ -53,7 +55,7 @@ export default function Header() {
           <div className="dropdown-item">
           <Link to={"/profil"}>
             <FontAwesomeIcon icon={faUserCog} />
-            <span>Voir le profil</span>
+           <span>Voir le profil</span>
             </Link>
           </div>
         </div>

@@ -1,0 +1,256 @@
+.container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .paragraphe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+  }
+  
+  h1 {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+  }
+  
+  .servicess {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 80px;
+    width: 100%;
+    padding-bottom: 150px;
+    gap: 20px;
+  }
+  
+  .lescards {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .service-cards {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 85%;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .service-cards::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Overlay sombre avec opacité de 0.6 */
+    z-index: 1;
+  }
+  
+  .service-cards h3 {
+    position: relative;
+    z-index: 2; /* Pour que le texte soit au-dessus de l'overlay */
+    margin: 0;
+  }
+  
+  .mes-cards {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .mes-cards p {
+    width: 95%;
+    text-align: center;
+  }
+  
+  .stylish-buttons {
+    background-color: rgba(29, 104, 133, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+    width: 55%;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: auto;
+  }
+  
+  .stylish-buttons .paw-icon {
+    margin-right: 10px;
+  }
+  
+  .stylish-buttons:hover {
+    color: #1a5e78;
+    background-color: white;
+  }
+  
+  .para {
+    margin-bottom: 40px;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+    margin-bottom: 10px;
+  }
+  
+  .team-member p {
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .metier {
+    color: #767676 !important;
+  }
+  
+  .partenaires {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .partenaires-logos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .partenaire {
+    margin: 10px;
+  }
+  
+  .partenaire-logo {
+    width: 150px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+  }
+  
+ 
+  
+  .swiper-container {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .avis-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .avis-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avis-profile {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #007aff;
+  }
+  
+  .swiper-pagination-bullet {
+    background: #007aff;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #005bb5;
+  }
+  
+
+  .avis {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.avis h2 {
+  margin-bottom: 20px;
+}
+
+.avis-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.avis-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avis-card p {
+  margin: 10px 0;
+}
