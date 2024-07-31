@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Service from "./components/Service";
 import Contact from "./components/Contact";
+import Profil from "./components/Profil";
 
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -25,6 +26,7 @@ function App() {
 
         <Route path="/Connection" element={<Connection />}/>
         <Route path="/Register" element={<Register />}/>
+        <Route path="/Profil" element={<Profil />}/>
       </Routes>
       
       <Footer />
