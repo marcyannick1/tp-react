@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const {PrismaClient} = require('@prisma/client');
 const {hashPassword, checkPassword} = require("./utils/brcrypt");
 const {generateToken} = require("./utils/jwt");
@@ -8,6 +9,12 @@ const port = 3000;
 const prisma = new PrismaClient()
 
 app.use(express.json());
+app.use(
+    cors({
+        origin: "*",
+        method: ["GET", "POST", "DELETE", "PATCH", "PUT"],
+    })
+);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
