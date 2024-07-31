@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
+import Connection from '../Connection';
 import AjoutCab from "../AjoutCab";
 import { faHome,faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 import { faClinicMedical } from '@fortawesome/free-solid-svg-icons';
@@ -43,7 +44,7 @@ export default function Header() {
         <div className="dropdown-menu">
           <div className="dropdown-item">
             <FontAwesomeIcon icon={faSignInAlt} />
-            <span>Se connecter</span>
+            <Link className="nav-icons"  to={"/connection"}><span>Se Connecter</span></Link>
           </div>
           <div className="dropdown-item">
             <FontAwesomeIcon icon={faSignOutAlt} />
@@ -51,7 +52,7 @@ export default function Header() {
           </div>
           <div className="dropdown-item">
             <FontAwesomeIcon icon={faUserCog} />
-            <span>Voir le profil</span>
+            <Link to={"/#"}><span>Voir le profil</span></Link>
           </div>
         </div>
       )}

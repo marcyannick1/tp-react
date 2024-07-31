@@ -14,7 +14,6 @@
 header {
     font-family: Arial, sans-serif;
     /* padding: 10px 0; */
-    position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(29, 104, 133, 0.9); 
@@ -134,7 +133,6 @@ nav ul li a:hover {
     background-color: white;
     border-radius: 100%;
     color: #004c58 !important;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
     cursor: pointer;
   }
@@ -143,7 +141,7 @@ nav ul li a:hover {
   }
   .user-bubble .dropdown-menu {
     position: absolute;
-    top: 70px; /* Ajustez selon l'espace nécessaire */
+    top: 62px; /* Ajustez selon l'espace nécessaire */
     right: 0;
     background-color: white;
     border-radius: 5px;
@@ -180,5 +178,7 @@ nav ul li a:hover {
   
   .user-bubble .dropdown-item span {
     font-size: 14px; /* Taille du texte */
+    text-decoration: none;
+    color: rgba(5, 35, 48, 0.9);
   }
   

@@ -1,9 +1,8 @@
 /* footer.css */
 
 footer {
-    background-color: #f9f9f9;
-    border-top: 1px solid #e0e0e0;
     padding: 20px 0;
+    color: white;
     text-align: center;
     font-family: Arial, sans-serif;
     display: flex;
@@ -11,6 +10,7 @@ footer {
     align-items: flex-end;
     left: 0;
     bottom: 0;
+    height: 49px;
     width: 100%;
     
 }
@@ -22,7 +22,7 @@ footer {
 
 footer p {
     margin: 10px 0;
-    color: #333;
+ 
 }
 
 footer a {

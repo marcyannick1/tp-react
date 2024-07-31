@@ -7,14 +7,12 @@
   margin: 90px auto;
   gap: 40px;
   background-color: #1a5e78;
-
   width: 85%;
-  height: auto;
   border-radius: 10px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
 
-  padding: 20px; /* Ajout de padding pour l'espacement interne */
+  padding: 0px 40px; /* Ajout de padding pour l'espacement interne */
   box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur et hauteur totales */
 }
 .image {
@@ -34,6 +32,13 @@
 .sous-titre h2 {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
 }
+.sous-titre2 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+  }
 .navbar-location {
   display: flex;
   align-items: center;
@@ -43,7 +48,7 @@
 
 .location-icon {
   margin-right: 8px;
-  font-size: 40px;
+  font-size: 25px;
   background-color: #0f3443;
   padding: 15px 20px;
   border-radius: 100%;
@@ -80,7 +85,7 @@
 .add-clinic-button {
   color: #1a5e78;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
-
+    margin: 0%;
   background-color: white;
   border: none;
   padding: 10px 20px;
@@ -113,12 +118,12 @@
 }
 
 .deux {
-    padding-top: 10px;
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
   background-color: white;
-  height: 700px;
+  height: 750px;
   width: 100%;
 }
 .icon2{
@@ -129,7 +134,178 @@
     width: 80px;
  }
 .slogan{
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     color: #032a3a;
+
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+
+
+  }
+  
+  .iconnn {
+    font-size: 40px;
+    color:  #073547;
+  }
+  
+  .iconnn:hover {
+    color: #137aa3;
+  }
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+    padding-bottom: 200px;
+    background-color: white;
+    gap: 20px;
+  }
+  .lescards{
+    width: 55%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+  }
+  .service-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 30%;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Overlay sombre avec opacité de 0.6 */
+    z-index: 1;
+  }
+  
+  .service-card h3 {
+    position: relative;
+    z-index: 2; /* Pour que le texte soit au-dessus de l'overlay */
+    margin: 0;
+  }
+  /* CSS pour les cartes d'informations */
+.info-section {
+    position: absolute;
+    top: 140em;
+    right: 20em;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    width: 60%;
+    gap: 20px;
+  }
+  
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    width: 210px;
+    height: 170px;
+    padding:  40px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  }
+  .informations{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin: 70px auto;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .info-card .icon {
+    font-size: 40px;
+    color: #007BFF;
+    margin-bottom: 10px;
+  }
+.card1{
+    background-color: #384d53;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Ombre principale */
+    0 6px 20px rgba(0, 0, 0, 0.19); /* Ombre secondaire pour un effet plus profond */
+}
+.card2{
+    background-color: #376e80;
+    color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Ombre principale */
+    0 6px 20px rgba(0, 0, 0, 0.19); /* Ombre secondaire pour un effet plus profond */
+}
+.card3 {
+
+    background-color: #054c68;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Ombre principale */
+                0 6px 20px rgba(0, 0, 0, 0.19); /* Ombre secondaire pour un effet plus profond */
+}
+
+.iconss{
+    color: white;
+    font-size: 25px;
+}
+  
+  .info-card p {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-image: url('../assets/clinique.jpeg'); /* Chemin relatif à votre fichier CSS */
+    background-size: contain; /* Utilisez contain pour éviter le zoom */
+    background-position: center; /* Pour centrer l'image */
+    background-repeat: no-repeat; /* Pour éviter la répétition de l'image */
+    height: 650px;
+    background-attachment: fixed;
+}
+.nous-suivre{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
+    margin: auto;
+}
+.end-button{
+    color: #1a5e78;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+    margin: 0%;
+    background-color: white;
+    border: none;
+    padding: 12px 12px;
+    font-size: 16px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
