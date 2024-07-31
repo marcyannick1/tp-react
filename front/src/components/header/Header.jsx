@@ -18,8 +18,8 @@ export default function Header() {
     const handleMouseLeave = () => setDropdownVisible(false);
   return (
     <header>
-        <div class="navbar">
-            <div class="logo">
+        <div className="navbar">
+            <div className="logo">
                 <img src="https://www.veterinaireac.fr/wp-content/uploads/2022/11/LogoCarrel-1200x1200.png" alt="Waf waf"/>
                 <span>DoctiVéto</span>
             </div>
@@ -33,7 +33,7 @@ export default function Header() {
                 </ul>
             </nav>
             <div className="info">
-            <div class="user">
+            <div className="user">
             <div 
       className="user-bubble" 
       onMouseEnter={handleMouseEnter} 
@@ -58,7 +58,7 @@ export default function Header() {
       )}
     </div>
             </div>
-            <div class="contact">
+            <div className="contact">
                  <FontAwesomeIcon className='iconphone' icon={faPhone} size="2x" />
                 <a className='telephone' href="tel:0123456789">01 23 45 67 89</a>
             </div>
