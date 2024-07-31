@@ -3,6 +3,7 @@ import './header.css'
 import Accueuil from "../Accueuil";
 import Connection from '../Connection';
 import AjoutCab from "../AjoutCab";
+import Contact from "../Contact";
 import { faHome,faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 import { faClinicMedical } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +30,7 @@ export default function Header() {
                     <li><Link to={"/ajoutcab"}> <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />  Cabinet</Link></li>
 
                     <li><a href="#"><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</a></li>
-                    <li><a href="#"><FontAwesomeIcon icon={faPhone} className="nav-icon" />  Contact</a></li>
+                    <li><Link to={"/contact"}><FontAwesomeIcon icon={faPhone} className="nav-icon" />  Contact</Link></li>
                 </ul>
             </nav>
             <div className="info">

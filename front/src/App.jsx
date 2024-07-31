@@ -7,26 +7,22 @@ import Connection from './components/Connection';
 import AjoutCab from "./components/AjoutCab";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import Contact from "./components/Contact";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <>
-    <Header />
-
+      <Header />
+      <Routes>
+        <Route path="/accueuil" element={<Accueuil />} />
+        <Route path="/ajoutcab" element={<AjoutCab />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/Connection" element={<Connection />}/>
+        <Route path="/Register" element={<Register />}/>
+      </Routes>
       
-      <main>
-        <Routes>
-          <Route path="/accueuil" element={<Accueuil />}/>
-          <Route path="/ajoutcab" element={<AjoutCab />}/>
-          <Route path="/Connection" element={<Connection />}/>
-          <Route path="/Register" element={<Register />}/>
-
-
-        </Routes>
-      </main>
-
       <Footer />
     </>
   );
