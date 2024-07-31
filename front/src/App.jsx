@@ -8,6 +8,7 @@ import AjoutCab from "./components/AjoutCab";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Contact from "./components/Contact";
+import Profil from "./components/Profil";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/Connection" element={<Connection />}/>
         <Route path="/Register" element={<Register />}/>
+        <Route path="/Profil" element={<Profil />}/>
       </Routes>
       
       <Footer />

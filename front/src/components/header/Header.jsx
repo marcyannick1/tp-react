@@ -51,8 +51,10 @@ export default function Header() {
             <span>Se déconnecter</span>
           </div>
           <div className="dropdown-item">
+          <Link to={"/profil"}>
             <FontAwesomeIcon icon={faUserCog} />
             <span>Voir le profil</span>
+            </Link>
           </div>
         </div>
       )}
