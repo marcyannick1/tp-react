@@ -1,0 +1,184 @@
+/* header.css */
+/* header {
+    font-family: Arial, sans-serif;
+    background-color: #5899a3;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    margin: 50;
+} */
+
+header {
+    font-family: Arial, sans-serif;
+    /* padding: 10px 0; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(29, 104, 133, 0.9); 
+    width: 100%;
+
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 90px;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 25px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00A3A7;
+}
+/* .user{
+    
+    gap: 10px;
+    background-color: white;
+    border-radius: 100%;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée 
+} */
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+
+    border-radius: 20px;
+    font-size: 18px;
+}
+.telephone{
+    color: #004c58 !important;
+
+}
+.iconphone{
+    color: #004c58;
+    font-size: 20px;
+}
+
+/* src/components/UserBubble.css */
+
+.user-bubble {
+    display: flex;
+    align-items: center;
+    background-color: #007BFF; /* Couleur de fond de la bulle */
+    color: white;
+    border-radius: 50%; /* Bord arrondi pour créer une forme circulaire */
+    width: 60px; /* Largeur de la bulle */
+    height: 60px; /* Hauteur de la bulle */
+    justify-content: center;
+    font-size: 24px; /* Taille de l'icône */
+    position: relative;
+  }
+  
+  .user-bubble .bubble-text {
+    position: absolute;
+    bottom: -10px; /* Ajustez la position en fonction de vos besoins */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px; /* Taille du texte */
+    color: white;
+  }
+  
+
+  .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  /* src/components/UserBubble.css */
+
+.user-bubble {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    color: #004c58 !important;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+    cursor: pointer;
+  }
+  .user-icon{
+    font-size: 19px;
+  }
+  .user-bubble .dropdown-menu {
+    position: absolute;
+    top: 70px; /* Ajustez selon l'espace nécessaire */
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 200px; /* Largeur de la liste déroulante */
+    z-index: 1000; /* Assure que la liste se superpose au reste du contenu */
+  }
+  
+  .user-bubble .dropdown-item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid  gar; /* Séparateur entre les éléments */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .user-bubble .dropdown-item:last-child {
+    border-bottom: none; /* Enlève le séparateur pour le dernier élément */
+  }
+  
+  .user-bubble .dropdown-item:hover {
+    background-color: rgba(29, 104, 133, 0.9); /* Couleur de survol */
+    color: white;
+  }
+  
+  .user-bubble .dropdown-item .fa {
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+  }
+  
+  .user-bubble .dropdown-item span {
+    font-size: 14px; /* Taille du texte */
+  }
+  
