@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const {PrismaClient} = require('@prisma/client');
 const {hashPassword, checkPassword} = require("./utils/brcrypt");
 const {generateToken} = require("./utils/jwt");
@@ -8,6 +9,12 @@ const port = 3000;
 const prisma = new PrismaClient()
 
 app.use(express.json());
+app.use(
+    cors({
+        origin: "*",
+        method: ["GET", "POST", "DELETE", "PATCH", "PUT"],
+    })
+);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -67,6 +74,18 @@ app.post('/cabinet', async (req, res) => {
         })
         res.status(201).json(cabinet)
     } catch (e) {
+        res.status(500).json(e)
+    }
+})
+
+app.get('/cabinet', async (req, res) => {
+    try {
+        const cabinets = await prisma.cabinet.findMany()
+        cabinets ?
+            res.status(200).json(cabinets) :
+            res.status(404).send("Aucun cabinet trouvé")
+    } catch (e) {
+        console.error(e)
         res.status(500).json(e)
     }
 })
@@ -135,6 +154,18 @@ app.post('/animal', async (req, res) => {
         res.status(201).json(animal)
     } catch (e) {
         console.log(e)
+        res.status(500).json(e)
+    }
+})
+
+app.get('/animal', async (req, res) => {
+    try {
+        const animaux = await prisma.animal.findMany()
+        animaux ?
+            res.status(200).json(animaux) :
+            res.status(404).send("Aucun animal trouvé")
+    } catch (e) {
+        console.error(e)
         res.status(500).json(e)
     }
 })
