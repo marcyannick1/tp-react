@@ -3,6 +3,7 @@ const cors = require('cors');
 const {PrismaClient} = require('@prisma/client');
 const {hashPassword, checkPassword} = require("./utils/brcrypt");
 const {generateToken} = require("./utils/jwt");
+const {authMiddleware} = require("./middleware/authMiddleware");
 
 const app = express();
 const port = 3000;
@@ -55,7 +56,7 @@ app.post('/login', async (req, res) => {
             const token = await generateToken(user)
             res.status(200).json({token})
         } else {
-            res.send({message: "Email ou mot de passe incorrect"});
+            res.status(401).send({message: "Email ou mot de passe incorrect"});
         }
     } catch (e) {
         res.status(500).json(e)
@@ -84,6 +85,22 @@ app.get('/cabinet', async (req, res) => {
         cabinets ?
             res.status(200).json(cabinets) :
             res.status(404).send("Aucun cabinet trouvé")
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
+app.get('/user/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: {id: parseInt(id)},
+        })
+        user ?
+            res.status(200).json(user) :
+            res.status(404).send("Aucun utilisateur trouvé")
     } catch (e) {
         console.error(e)
         res.status(500).json(e)
