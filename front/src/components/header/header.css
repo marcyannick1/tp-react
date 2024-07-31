@@ -133,6 +133,7 @@ nav ul li a:hover {
     background-color: white;
     border-radius: 100%;
     color: #004c58 !important;
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
     cursor: pointer;
   }
@@ -141,7 +142,7 @@ nav ul li a:hover {
   }
   .user-bubble .dropdown-menu {
     position: absolute;
-    top: 62px; /* Ajustez selon l'espace nécessaire */
+    top: 70px; /* Ajustez selon l'espace nécessaire */
     right: 0;
     background-color: white;
     border-radius: 5px;
