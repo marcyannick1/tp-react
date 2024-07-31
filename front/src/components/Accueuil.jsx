@@ -9,6 +9,7 @@ import './Accueil.css';
 import medecineGenerale from '../assets/generale.jpeg'; // Importez les images pour chaque service
 import medecineInterne from '../assets/interne.jpeg';
 import hospitalisation from '../assets/hospitalisation.jpeg';
+import badge from '../assets/badge.png';
 import chirurgie from '../assets/chirurgie.jpeg';
 import imagerie from '../assets/imagerie.jpeg';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -19,6 +20,8 @@ import laboratoire from '../assets/laboratoire.jpeg';
 export default function Accueuil() {
   return (
     <div className='container'>
+          <img src={badge} alt='Description' className='badge' />
+
       <div className='content'>
         <div className="header">
           <img src={chien} alt='Description' className='image' />

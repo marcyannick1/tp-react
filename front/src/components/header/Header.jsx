@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
+import Service from '../Service';
 import Connection from '../Connection';
 import AjoutCab from "../AjoutCab";
 import Contact from "../Contact";
@@ -29,7 +30,7 @@ export default function Header() {
                     <li><Link to={"/accueuil"}><FontAwesomeIcon icon={faHome} className="" />  Acceuil</Link></li>
                     <li><Link to={"/ajoutcab"}> <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />  Cabinet</Link></li>
 
-                    <li><a href="#"><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</a></li>
+                    <li><Link to={"/Service"}><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</Link></li>
                     <li><Link to={"/contact"}><FontAwesomeIcon icon={faPhone} className="nav-icon" />  Contact</Link></li>
                 </ul>
             </nav>

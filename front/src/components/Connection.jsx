@@ -10,7 +10,7 @@ import chien from '../assets/chien5.jpeg';
 
 export default function Connection() {
   return (
-    <div className="container">
+    <div className="containers">
       <div className="login">
         <div className="login-container">
           <h1>Log in</h1>
