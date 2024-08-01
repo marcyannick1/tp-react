@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
 import Service from '../Service';
@@ -12,10 +12,11 @@ import { faUser, faSignInAlt, faSignOutAlt, faUserCog } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Link, Route, Routes } from "react-router-dom";
+import { AuthContext } from '../../context/authContext';
 
 export default function Header() {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
-
+    const {logout} = useContext(AuthContext)
     const handleMouseEnter = () => setDropdownVisible(true);
     const handleMouseLeave = () => setDropdownVisible(false);
   return (
@@ -48,13 +49,13 @@ export default function Header() {
             <FontAwesomeIcon icon={faSignInAlt} />
             <Link className="nav-icons"  to={"/connection"}><span>Se Connecter</span></Link>
           </div>
-          <div className="dropdown-item">
+          <div className="dropdown-item" onClick={logout}>
             <FontAwesomeIcon icon={faSignOutAlt} />
             <span>Se déconnecter</span>
           </div>
           <div className="dropdown-item">
-          <Link to={"/profil"}>
-            <FontAwesomeIcon icon={faUserCog} />
+          <FontAwesomeIcon icon={faUserCog} />
+          <Link to={"/profil"} className="nav-icons" >
            <span>Voir le profil</span>
             </Link>
           </div>

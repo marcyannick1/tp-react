@@ -1,6 +1,6 @@
 // src/components/Accueuil.jsx
 
-import React from 'react';
+import React, { useContext } from 'react';
 import chien from '../assets/chien.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faUser, faPaw, faClinicMedical } from '@fortawesome/free-solid-svg-icons'; 
@@ -15,13 +15,16 @@ import imagerie from '../assets/imagerie.jpeg';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
 import laboratoire from '../assets/laboratoire.jpeg';
+import { AuthContext } from '../context/authContext';
 
 
 export default function Accueuil() {
+  // const {user} = useContext(AuthContext);
+  // console.log(user);
   return (
     <div className='container'>
           <img src={badge} alt='Description' className='badge' />
-
+      {/* <p>{user.firstName}</p> */}
       <div className='content'>
         <div className="header">
           <img src={chien} alt='Description' className='image' />
