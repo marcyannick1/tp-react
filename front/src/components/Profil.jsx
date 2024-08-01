@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import "./profil.css";
 import { AuthContext } from '../context/authContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,14 +9,81 @@ import hospitalisation from '../assets/hospitalisation.jpeg';
 
 export default function Profil() {
   const { user } = useContext(AuthContext);
-  console.log(user)
+  console.log("IDDDD", user.id);
+  const [animal, setAnimal] = useState({
+    description: "",
+    race: "",
+    poids: 0.0,
+    taille: 0.0,
+    userId: user.id,
+    cabinetId: 5,
+  });
+  const [editingAnimal, setEditingAnimal] = useState(null); 
+  const [data, setData] = useState([]);
 
-  // Dummy animal data
-  const animal = {
-    name: "Buddy",
-    age: 3,
-    type: "Dog",
-    breed: "Golden Retriever"
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    axios
+      .get("http://localhost:3000/animal")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const addAnimal = () => {
+    axios
+      .post("http://localhost:3000/animal", animal)
+      .then(() => {
+        fetchData();
+        setAnimal({
+          description: "",
+          race: "",
+          poids: 0.0,
+          taille: 0.0,
+          userId: user.id,
+          cabinetId: 5
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+  
+  const startEditing = (animal) => {
+    setEditingAnimal({ ...animal });
+  };
+
+  const cancelEditing = () => {
+    setEditingAnimal(null);
+  };
+  
+  const saveAnimal = (id) => {
+    axios
+      .put(`http://localhost:3000/animal/${id}`, editingAnimal)
+      .then(() => {
+        fetchData();
+        setEditingAnimal(null);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const deleteAnimal = (id) => {
+    axios
+      .delete(`http://localhost:3000/animal/${id}`)
+      .then(() => {
+        fetchData();
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAnimal({
+      ...animal,
+      [name]: name === "poids" || name === "taille" ? parseFloat(value) : value
+    });
   };
 
   return (
@@ -54,18 +122,93 @@ export default function Profil() {
 
           <div className="canin">
             <div className="">
-            <h3>Compagnon Canin</h3>
-            <p>Nom: {animal.name}</p>
-            <p>Âge: {animal.age} ans</p>
-            <p>Type: {animal.type}</p>
-            <p>Race: {animal.breed}</p>
-            <button className="add-animal-btn">Ajouter un animal</button>
-
+              <h3>Compagnon Canin</h3>
+              <input
+                type="text"
+                placeholder="Description"
+                name="description"
+                value={animal.description}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                placeholder="Race"
+                name="race"
+                value={animal.race}
+                onChange={handleChange}
+              />
+              <input
+                type="number"
+                placeholder="Poids"
+                name="poids"
+                value={animal.poids}
+                onChange={handleChange}
+              />
+              <input
+                type="number"
+                placeholder="Taille"
+                name="taille"
+                value={animal.taille}
+                onChange={handleChange}
+              />
+              <button className="add-animal-btn" onClick={addAnimal}>
+                Ajouter un animal
+              </button>
             </div>
-          <div className='service-card' style={{ backgroundImage: `url(${hospitalisation})` }}>
+            <div
+              className="service-card"
+              style={{ backgroundImage: `url(${hospitalisation})` }}
+            ></div>
           </div>
-
+          
+          {data.filter(animal => animal.userId === user.id).map((animal) => (
+          <div className="canin">
+              <div className="" key={animal.id}>
+                <div className="">
+                  <h3>Compagnon Canin - {animal.race}</h3>
+                  <p>Description: {animal.description}</p>
+                  <p>Taille: {animal.taille}</p>
+                  <p>Poids: {animal.poids}</p>
+                  <button onClick={() => startEditing(animal)}>Edit</button>
+                </div>
+                {editingAnimal && editingAnimal.id === animal.id && (
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Description"
+                      name="description"
+                      value={editingAnimal.description}
+                      onChange={(e) => setEditingAnimal({ ...editingAnimal, description: e.target.value })}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Race"
+                      name="race"
+                      value={editingAnimal.race}
+                      onChange={(e) => setEditingAnimal({ ...editingAnimal, race: e.target.value })}
+                    />
+                    <input
+                      type="number"
+                      placeholder="Poids"
+                      name="poids"
+                      value={editingAnimal.poids}
+                      onChange={(e) => setEditingAnimal({ ...editingAnimal, poids: parseFloat(e.target.value) })}
+                    />
+                    <input
+                      type="number"
+                      placeholder="Taille"
+                      name="taille"
+                      value={editingAnimal.taille}
+                      onChange={(e) => setEditingAnimal({ ...editingAnimal, taille: parseFloat(e.target.value) })}
+                    />
+                    <button onClick={() => saveAnimal(animal.id)}>Sauvegarder</button>
+                    <button onClick={cancelEditing}>Annuler</button>
+                    <button onClick={() => deleteAnimal(animal.id)}>Supprimer</button>
+                  </div>
+                )}
+              </div>
           </div>
+          ))}
         </div>
 
         <div className="form-container">
