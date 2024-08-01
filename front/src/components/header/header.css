@@ -42,7 +42,15 @@ header {
     height: 40px;
     margin-right: 10px;
 }
+.nav-icons{
+    color: #004c58;
+    text-transform: none;
+    text-decoration: none;
 
+}
+.nav-icons:hover{
+    color: white;
+}
 nav ul {
     list-style: none;
     display: flex;
@@ -142,7 +150,7 @@ nav ul li a:hover {
   }
   .user-bubble .dropdown-menu {
     position: absolute;
-    top: 70px; /* Ajustez selon l'espace nécessaire */
+    top: 62px; /* Ajustez selon l'espace nécessaire */
     right: 0;
     background-color: white;
     border-radius: 5px;
