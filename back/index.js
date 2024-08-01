@@ -107,6 +107,21 @@ app.get('/user/:id', async (req, res) => {
     }
 })
 
+app.get('/user/:id/animaux', async (req, res) => {
+    const {id} = req.params
+    try {
+        const animaux = await prisma.animal.findMany({
+            where : {userId : parseInt(id)},
+        })
+        animaux ?
+            res.status(200).json(animaux) :
+            res.status(404).send("Aucun animal trouvé")
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
 app.get('/cabinet/:id', async (req, res) => {
     const {id} = req.params;
 
