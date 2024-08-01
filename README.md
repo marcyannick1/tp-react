@@ -16,12 +16,13 @@ Pour lancer les scripts back-end, suivez les étapes suivantes :
 5. Lancez votre serveur Wamp/Wamp puis accédez à la création d'une base de données. Appelez-la comme vous le souhaitez.
 6. Accédez à votre fichier `.env` et modifiez les éléments suivants :
 
-${mdp_de_bdd} - Si vous en avez un, placez votre mot de passe ici, sinon retirez-le :
-${port_de_votre_bdd} - Mettez le port de votre serveur
-${nom_de_votre_bdd} - Insérez le nom de votre base de données
+{mdp_de_bdd} - Si vous en avez un, placez votre mot de passe ici, sinon retirez-le `:`
+{port_de_votre_bdd} - Mettez le port de votre serveur
+{nom_de_votre_bdd} - Insérez le nom de votre base de données
 ```
-DATABASE_URL="mysql://root:${mdp_de_bdd}@localhost:${port_de_votre_bdd}/${nom_de_votre_bdd}"
+DATABASE_URL="mysql://root:{mdp_de_bdd}@localhost:{port_de_votre_bdd}/{nom_de_votre_bdd}"
 JWT_SECRET=""
+```
 
 8. Une fois ces étapes terminées, entrez la commande `npx prisma migrate dev`. La création des tables se fera automatiquement.
 9. Pour finir, exécutez la commande `npm run dev` pour démarrer le serveur back-end.
