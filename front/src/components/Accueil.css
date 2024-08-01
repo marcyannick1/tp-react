@@ -44,9 +44,23 @@
 .sous-titre h2 {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
 }
+
 .sous-titre2 {
     width: 60%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+  }
+  .sous-titre3 {
+    background-color: #1d6885;
+    padding-right:20% ;
+    padding-left:20% ;
+    padding-bottom: 190px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: auto;
     flex-direction: column;
     align-items: center;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
@@ -138,6 +152,7 @@
   height: 750px;
   width: 100%;
 }
+
 .icon2{
    width: 60px;
 }
@@ -151,6 +166,12 @@
     color: #032a3a;
 
 }
+.slogans{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+
+}
 
 .icons {
     display: flex;
@@ -160,6 +181,29 @@
     width: 60%;
 
 
+  }
+  .card-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .car {
+    width: 30%;
+    padding: 20px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .card-text {
+    margin-top: 15px;
+    color: white;
   }
   
   .iconnn {
@@ -224,7 +268,7 @@
   /* CSS pour les cartes d'informations */
 .info-section {
     position: absolute;
-    top: 130em;
+    top: 195em;
     right: 20em;
     display: flex;
     justify-content: space-between;

@@ -55,6 +55,7 @@ export default function Header() {
           </div>
           <div className="dropdown-item">
           <FontAwesomeIcon icon={faUserCog} />
+
           <Link to={"/profil"} className="nav-icons" >
            <span>Voir le profil</span>
             </Link>
