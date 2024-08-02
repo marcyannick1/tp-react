@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './contact.css';
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function Contact() {
     const [nom, setNom] = useState('');
@@ -7,10 +9,28 @@ export default function Contact() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(nom, prenom, email, phone, message);
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/message',
+            data:{
+                nom,
+                prenom,
+                email,
+                telephone: parseInt(phone),
+                message,
+            }
+        }).then((response) => {
+            console.log(response);
+            setNom('')
+            setPrenom('')
+            setEmail('')
+            setPhone('')
+            setMessage('')
+        })
     };
 
     return (
