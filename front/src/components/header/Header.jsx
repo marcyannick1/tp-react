@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import React, {useContext, useState} from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
 import Service from '../Service';
@@ -41,11 +40,10 @@ export default function Header() {
             <div 
       className="user-bubble" 
       onMouseEnter={handleMouseEnter} 
-      onMouseLeave={handleMouseLeave}
     >
       <FontAwesomeIcon icon={faUser} className='user-icon' size="2x" />
       {isDropdownVisible && (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu" onMouseLeave={handleMouseLeave}>
             {!isAuthenticated &&
               <div className="dropdown-item">
                 <FontAwesomeIcon icon={faSignInAlt} />
@@ -53,32 +51,29 @@ export default function Header() {
               </div>
             }
             {isAuthenticated &&
-                <>
-                  <div className="dropdown-item" onClick={logout} onClick={logout}>
-                    <FontAwesomeIcon icon={faSignOutAlt} />
-                    <span>Se déconnecter</span>
-                  </div>
-                  <div className="dropdown-item">
-                  <FontAwesomeIcon icon={faUserCog} />
-                  <Link to={"/profil"} className="nav-icons" >
-           <span>Voir le profil</span>
-            </Link>
-                  </div>
-                </>
+              <>
+              <div className="dropdown-item" onClick={logout}>
+                <FontAwesomeIcon icon={faSignOutAlt} />
+                <span>Se déconnecter</span>
+              </div>
+              <div className="dropdown-item">
+                <FontAwesomeIcon icon={faUserCog} />
+                <Link to={"/profil"} className="nav-icons">
+                  <span>Voir le profil</span>
+                </Link>
+              </div>
+            </>
             }
         </div>
       )}
-    </div>
-            </div>
-            <div className="contact">
-                 <FontAwesomeIcon className='iconphone' icon={faPhone} size="2x" />
-                <a className='telephone' href="tel:0123456789">01 23 45 67 89</a>
-            </div>
-            </div>
-            
-            
-
-        </div>
+      </div>
+          </div>
+          <div className="contact">
+                <FontAwesomeIcon className='iconphone' icon={faPhone} size="2x" />
+              <a className='telephone' href="tel:0123456789">01 23 45 67 89</a>
+          </div>
+          </div>
+      </div>
     </header>
     )
 }

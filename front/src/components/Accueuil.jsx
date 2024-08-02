@@ -1,7 +1,6 @@
 // src/components/Accueuil.jsx
 
 import React, { useContext } from 'react';
-import React, {useContext} from 'react';
 import chien from '../assets/chien.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faUser, faPaw, faClinicMedical } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +16,6 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
 import laboratoire from '../assets/laboratoire.jpeg';
 import { AuthContext } from '../context/authContext';
-import {AuthContext} from "../context/authContext/index.jsx";
 
 
 export default function Accueuil() {

@@ -8,8 +8,9 @@ import { faFacebookF, faTwitter, faGithub, faLinkedinIn } from '@fortawesome/fre
 import hospitalisation from '../assets/hospitalisation.jpeg';
 
 export default function Profil() {
+  
   const { user } = useContext(AuthContext);
-  console.log("IDDDD", user.id);
+
   const [animal, setAnimal] = useState({
     description: "",
     race: "",
@@ -20,12 +21,17 @@ export default function Profil() {
   });
   
   const [editingAnimal, setEditingAnimal] = useState(null); 
+  const [editingProfil, setEditingProfil] = useState(null);
   const [data, setData] = useState([]);
   const [cabinets, setCabinets] = useState([]);
+
+  const [localUser, setLocalUser] = useState(''); 
 
   useEffect(() => {
     fetchData();
     fetchCabinets();
+    setLocalUser('');
+    getProfil();
   }, []);
 
   const fetchData = () => {
@@ -37,6 +43,7 @@ export default function Profil() {
       .catch((error) => console.log(error));
   };
 
+// PARTIE ANIMAUX
   const addAnimal = () => {
     axios
       .post("http://localhost:3000/animal", animal)
@@ -60,12 +67,14 @@ export default function Profil() {
 
   const cancelEditing = () => {
     setEditingAnimal(null);
+    setEditingProfil(null);
   };
   
   const saveAnimal = (id) => {
     axios
       .put(`http://localhost:3000/animal/${id}`, editingAnimal)
       .then(() => {
+        console.log('animal', editingAnimal);
         fetchData();
         setEditingAnimal(null);
       })
@@ -81,6 +90,15 @@ export default function Profil() {
       .catch((error) => console.log(error));
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAnimal({
+      ...animal,
+      [name]: name === "poids" || name === "taille" ? parseFloat(value) : value
+    });
+  };
+
+// PARTIE CABINET
   const fetchCabinets = () => {
     axios
       .get("http://localhost:3000/cabinet")
@@ -90,12 +108,35 @@ export default function Profil() {
       .catch((error) => console.log(error));
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setAnimal({
-      ...animal,
-      [name]: name === "poids" || name === "taille" ? parseFloat(value) : value
-    });
+// PARTIE PROFIL
+
+  const getProfil = () => {
+    axios .get(`http://localhost:3000/user/${user.id}`)
+      .then((response) => {
+        setLocalUser(response.data);
+        console.log('user' , localUser);
+      })
+      .catch((error) => console.log(error));
+  };
+
+
+  const startEditingPro = (profil) => {
+    setEditingProfil({ ...profil });
+  };
+
+  const saveProfil = (id) => {
+    const { iat, exp, password, ...updatedProfil } = editingProfil;
+    axios
+      .put(`http://localhost:3000/user/${id}`, updatedProfil)
+      .then((response) => {
+        console.log('updated', editingProfil);
+        setLocalUser(response.data); 
+        console.log('localUser', localUser);
+        getProfil();
+        fetchData();
+        setEditingProfil(updatedProfil);
+      })
+      .catch((error) => console.log('Erreur lors de la mise à jour du profil:', error));
   };
 
   return (
@@ -108,7 +149,7 @@ export default function Profil() {
               <div className="profile-pic">
                 <FontAwesomeIcon icon={faUser} className='user-icon' size="2x" />
               </div>
-              <h2 className="profile-name">{user.firstName}</h2>
+              <h2 className="profile-name">{localUser.firstName}</h2>
             </div>
             <div className="so">
               <div className="social-icons">
@@ -258,27 +299,50 @@ export default function Profil() {
           ))}
         </div>
 
-        <div className="form-container">
-          <form>
-            <div className="form-group">
-              <label htmlFor="name">Nom</label>
-              <input type="text" id="name" value={user.lastName} name="name" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="name">Prénom</label>
-              <input type="text" id="name" value={user.firstName} name="name" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" value={user.email} name="email" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="adresse">Location</label>
-              <input type="text" id="location" value={"5 rue de la mandarine 77510 Rebais"} name="location" />
-            </div>
-            <button type="submit">Update</button>
-          </form>
+    <div className="form-container">
+      <form>
+        <div className="form-group">
+          <label htmlFor="lastName">Nom</label>
+          <input type="text" id="lastName" value={localUser.lastName} name="lastName" readOnly />
         </div>
+        <div className="form-group">
+          <label htmlFor="firstName">Prénom</label>
+          <input type="text" id="firstName" value={localUser.firstName} name="firstName" readOnly />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" value={localUser.email} name="email" readOnly />
+        </div>
+        <button type="button" onClick={() => startEditingPro(localUser)}>Edit</button>
+      </form>
+      {editingProfil && editingProfil.id === localUser.id && (
+        <div>
+          <input
+            type="text"
+            placeholder="Nom"
+            name="lastName"
+            value={editingProfil.lastName}
+            onChange={(e) => setEditingProfil({ ...editingProfil, lastName: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Prénom"
+            name="firstName"
+            value={editingProfil.firstName}
+            onChange={(e) => setEditingProfil({ ...editingProfil, firstName: e.target.value })}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={editingProfil.email}
+            onChange={(e) => setEditingProfil({ ...editingProfil, email: e.target.value })}
+          />
+          <button onClick={() => saveProfil(localUser.id)}>Sauvegarder</button>
+          <button onClick={cancelEditing}>Annuler</button>
+        </div>
+      )}
+    </div>
       </div>
     </div>
   );
