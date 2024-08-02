@@ -1,19 +1,39 @@
-// Contact.jsx
 import React, { useState } from 'react';
 import './contact.css';
 import MapComponent from './MapComponent';
 
-export default function Contact() {
-  const [nom, setNom] = useState('');
-  const [prenom, setPrenom] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(nom, prenom, email, phone, message);
-  };
+export default function Contact() {
+    const [nom, setNom] = useState('');
+    const [prenom, setPrenom] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/message',
+            data:{
+                nom,
+                prenom,
+                email,
+                telephone: parseInt(phone),
+                message,
+            }
+        }).then((response) => {
+            console.log(response);
+            setNom('')
+            setPrenom('')
+            setEmail('')
+            setPhone('')
+            setMessage('')
+        })
+    };
 
   return (
     <div className="contact-container">
