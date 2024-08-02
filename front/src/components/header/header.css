@@ -42,7 +42,15 @@ header {
     height: 40px;
     margin-right: 10px;
 }
+.nav-icons{
+    color: #004c58;
+    text-transform: none;
+    text-decoration: none;
 
+}
+.nav-icons:hover{
+    color: white;
+}
 nav ul {
     list-style: none;
     display: flex;
@@ -179,5 +187,6 @@ nav ul li a:hover {
   
   .user-bubble .dropdown-item span {
     font-size: 14px; /* Taille du texte */
+    text-decoration: none;
   }
   

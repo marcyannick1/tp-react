@@ -33,7 +33,7 @@ export default function Connection() {
         console.log(error)
     }, [error])
   return (
-    <div className="container">
+    <div className="containers">
       <div className="login">
           <div className="login-container">
               <h1>Connexion</h1>

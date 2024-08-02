@@ -1,6 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
+import Service from '../Service';
 import Connection from '../Connection';
 import AjoutCab from "../AjoutCab";
 import Contact from "../Contact";
@@ -20,8 +21,8 @@ export default function Header() {
     const handleMouseLeave = () => setDropdownVisible(false);
   return (
     <header>
-        <div class="navbar">
-            <div class="logo">
+        <div className="navbar">
+            <div className="logo">
                 <img src="https://www.veterinaireac.fr/wp-content/uploads/2022/11/LogoCarrel-1200x1200.png" alt="Waf waf"/>
                 <span>DoctiVéto</span>
             </div>
@@ -30,20 +31,19 @@ export default function Header() {
                     <li><Link to={"/accueil"}><FontAwesomeIcon icon={faHome} className="" />  Acceuil</Link></li>
                     <li><Link to={"/ajoutcab"}> <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />  Cabinet</Link></li>
 
-                    <li><a href="#"><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</a></li>
+                    <li><Link to={"/Service"}><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</Link></li>
                     <li><Link to={"/contact"}><FontAwesomeIcon icon={faPhone} className="nav-icon" />  Contact</Link></li>
                 </ul>
             </nav>
             <div className="info">
-            <div class="user">
+            <div className="user">
             <div 
       className="user-bubble" 
       onMouseEnter={handleMouseEnter} 
-      onMouseLeave={handleMouseLeave}
     >
       <FontAwesomeIcon icon={faUser} className='user-icon' size="2x" />
       {isDropdownVisible && (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu" onMouseLeave={handleMouseLeave}>
             {!isAuthenticated &&
               <div className="dropdown-item">
                 <FontAwesomeIcon icon={faSignInAlt} />
@@ -51,30 +51,35 @@ export default function Header() {
               </div>
             }
             {isAuthenticated &&
-                <>
-                  <div className="dropdown-item" onClick={logout}>
-                    <FontAwesomeIcon icon={faSignOutAlt} />
-                    <span>Se déconnecter</span>
-                  </div>
-                  <div className="dropdown-item">
-                    <FontAwesomeIcon icon={faUserCog} />
-                    <Link to={"/#"}><span>Voir le profil</span></Link>
-                  </div>
-                </>
+              <>
+              <div className="dropdown-item" onClick={logout}>
+                <FontAwesomeIcon icon={faSignOutAlt} />
+                <span>Se déconnecter</span>
+              </div>
+              <div className="dropdown-item">
+                <FontAwesomeIcon icon={faUserCog} />
+                <Link to={"/profil"} className="nav-icons">
+                  <span>Voir le profil</span>
+                </Link>
+              </div>
+            </>
             }
         </div>
       )}
+      </div>
+          </div>
+          <div className="contact">
+                <FontAwesomeIcon className='iconphone' icon={faPhone} size="2x" />
+              <a className='telephone' href="tel:0123456789">01 23 45 67 89</a>
+          </div>
+          <div className="dropdown-item">
+          <FontAwesomeIcon icon={faUserCog} />
+          <Link to={"/profil"} className="nav-icons" >
+           <span>Voir le profil</span>
+            </Link>
+          </div>
+      </div>
     </div>
-            </div>
-            <div class="contact">
-                 <FontAwesomeIcon className='iconphone' icon={faPhone} size="2x" />
-                <a className='telephone' href="tel:0123456789">01 23 45 67 89</a>
-            </div>
-            </div>
-            
-            
-
-        </div>
     </header>
     )
 }

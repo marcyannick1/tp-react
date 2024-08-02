@@ -1,0 +1,155 @@
+.card {
+    /* display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08), -4px -4px 12px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px auto;
+    color: #322d2d; */
+}
+
+.formCab{
+    background-color: white;
+    height: 770px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.card-des {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.add-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d6885;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-form button:hover {
+    background-color: #145065;
+}
+
+.card button {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #365e6e;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    margin: 5px 0;
+}
+
+.card button:hover {
+    background-color: #145065;
+}
+
+.card input {
+    margin-bottom: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.infos-card {
+    display: flex;
+    background-color: #054c68;
+    
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    width: 220px;
+    height: 210px;
+    padding:  50px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08), -4px -4px 12px rgba(0, 0, 0, 0.08);
+
+  }
+  .iconsss{
+    color: white;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+  }
+  .text{
+    color: white;
+  }
+  .texts{
+    color: white;
+    font-size: 22px;
+  }
+  .card1{
+    background-color: #384d53;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Ombre principale */
+    0 6px 20px rgba(0, 0, 0, 0.19); /* Ombre secondaire pour un effet plus profond */
+}
+.nomCabinet{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+
+
+}
+.adresseCabinet{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+.mesButtons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}

@@ -35,7 +35,7 @@ export default function Register() {
         console.log(user)
     }, [user])
     return (
-        <div className="container">
+        <div className="containe">
             <div className="login">
                 <div className="login-container">
                     <h1>Inscription</h1>

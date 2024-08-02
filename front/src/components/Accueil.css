@@ -1,9 +1,13 @@
 .container {
   padding: 0;
 }
+.content{
+    background-color: #1d6885;
+}
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 90px auto;
   gap: 40px;
   background-color: #1a5e78;
@@ -11,16 +15,24 @@
   border-radius: 10px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
-
+  height: 700px;
   padding: 0px 40px; /* Ajout de padding pour l'espacement interne */
   box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur et hauteur totales */
 }
+.badge{
+    width: 150px;
+    top: 9em;
+    left: 4em;
+    position: absolute;
+    background-color: none;
+}
 .image {
   width: 50%;
-  height: 100%;
+  height: min-content;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+
 .titre {
   /* background-color: rebeccapurple; */
   width: 60%;
@@ -32,9 +44,23 @@
 .sous-titre h2 {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
 }
+
 .sous-titre2 {
     width: 60%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+  }
+  .sous-titre3 {
+    background-color: #1d6885;
+    padding-right:20% ;
+    padding-left:20% ;
+    padding-bottom: 190px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: auto;
     flex-direction: column;
     align-items: center;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
@@ -57,9 +83,9 @@
 
 /* StylishButton.css */
 .stylish-button {
-  background-color: #0f3443;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
+    background-color: rgb(10 40 52 / 90%);;
 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -108,7 +134,7 @@
 }
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 500px;
   margin: auto;
@@ -126,6 +152,7 @@
   height: 750px;
   width: 100%;
 }
+
 .icon2{
    width: 60px;
 }
@@ -139,6 +166,12 @@
     color: #032a3a;
 
 }
+.slogans{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+
+}
 
 .icons {
     display: flex;
@@ -148,6 +181,29 @@
     width: 60%;
 
 
+  }
+  .card-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .car {
+    width: 30%;
+    padding: 20px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .card-text {
+    margin-top: 15px;
+    color: white;
   }
   
   .iconnn {
@@ -212,7 +268,7 @@
   /* CSS pour les cartes d'informations */
 .info-section {
     position: absolute;
-    top: 140em;
+    top: 195em;
     right: 20em;
     display: flex;
     justify-content: space-between;
