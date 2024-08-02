@@ -12,10 +12,13 @@
     margin: 10px auto;
     color: #322d2d; */
 }
+
 .formCab{
     background-color: white;
     height: 770px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

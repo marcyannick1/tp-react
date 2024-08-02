@@ -10,7 +10,7 @@ import {AuthContext} from "../context/authContext/index.jsx";
 import {Link} from "react-router-dom";
 
 export default function Register() {
-    const {register, user} = useContext(AuthContext);
+    const {register, user, error, setError} = useContext(AuthContext);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -24,6 +24,7 @@ export default function Register() {
             ...formData,
             [name]: value,
         });
+        setError(null)
     };
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -44,6 +45,7 @@ export default function Register() {
                         <input type="email" placeholder="Email" name="email" onChange={handleChange} value={formData.email}/>
                         <input type="password" placeholder="Password" name="password" onChange={handleChange}
                                value={formData.password}/><br/>
+                        {error && <p className="error">{error}</p>}
                         <Link to="/connection">Vous avez déjà un compte?</Link><br></br>
                         <button>S'inscrire</button>
                     </form>
