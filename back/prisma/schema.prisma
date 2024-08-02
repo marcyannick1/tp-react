@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:root@localhost:8889/tp-react"
+  url      = env("DATABASE_URL")
 }
 
 model User {
