@@ -40,3 +40,7 @@ Ces instructions vous permettront de lancer les scripts back-end et front-end de
 
 Rendez-vous maintenant sur votre localhost que Vite vous a défini. 
 ![Retrouvez le ici :](exemple.png)
+
+Cliquer ensuite sur un élément de la navbar. Cela vous ramènera sur la page d'inscription et de connexion.
+Lorsque vous créer votre comptes et que vous inserez les identifiants pour vous connecter, après avoir cliqué sur "Se connecter".
+Faite un refresh de page et rendez-vous sur l'accueil.
