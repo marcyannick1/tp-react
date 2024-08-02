@@ -10,7 +10,7 @@ import {AuthContext} from "../context/authContext/index.jsx";
 import {Link} from "react-router-dom";
 
 export default function Connection() {
-    const {login, user} = useContext(AuthContext);
+    const {login, user, error, setError} = useContext(AuthContext);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -22,6 +22,7 @@ export default function Connection() {
             ...formData,
             [name]: value,
         });
+        setError(null)
     };
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -29,8 +30,8 @@ export default function Connection() {
     }
 
     useEffect(()=>{
-        console.log(user)
-    }, [user])
+        console.log(error)
+    }, [error])
   return (
     <div className="container">
       <div className="login">
@@ -40,6 +41,7 @@ export default function Connection() {
                   <input type="email" placeholder="Email" name="email" onChange={handleChange} value={formData.email}/>
                   <input type="password" placeholder="Password" name="password" onChange={handleChange}
                          value={formData.password}/><br/>
+                  {error && <p className="error">{error}</p>}
                   <Link to="/register">Vous n'avez pas de compte?</Link><br></br>
                   <button>Se connecter</button>
               </form>

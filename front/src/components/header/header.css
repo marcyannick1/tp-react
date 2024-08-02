@@ -142,7 +142,7 @@ nav ul li a:hover {
   }
   .user-bubble .dropdown-menu {
     position: absolute;
-    top: 70px; /* Ajustez selon l'espace nécessaire */
+    top: 62px; /* Ajustez selon l'espace nécessaire */
     right: 0;
     background-color: white;
     border-radius: 5px;

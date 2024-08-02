@@ -1,24 +1,25 @@
 import {createContext, useState, useEffect, useContext} from 'react';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
+    const [error, setError] = useState()
 
     const navigate = useNavigate()
 
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            try{
+            try {
                 const decodedToken = jwtDecode(token);
                 setUser(decodedToken);
                 setIsAuthenticated(true)
-            }catch(e){
+            } catch (e) {
                 setUser(null);
                 setIsAuthenticated(false)
             }
@@ -34,6 +35,9 @@ export const AuthProvider = ({children}) => {
             if (response.status === 201) {
                 navigate("/connection")
             }
+        }).catch((error) => {
+            setError("Email deja utilisé")
+            console.log(error)
         })
     }
 
@@ -45,8 +49,11 @@ export const AuthProvider = ({children}) => {
         }).then((response) => {
             if (response.status === 200) {
                 localStorage.setItem('token', response.data.token);
+                navigate("/accueil")
+                setError(null)
             }
-            navigate("/accueuil")
+        }).catch((e)=>{
+            setError(e.response.data.message)
         })
     }
 
@@ -58,7 +65,7 @@ export const AuthProvider = ({children}) => {
     };
 
     return (
-        <AuthContext.Provider value={{login, register, logout, isAuthenticated, user}}>
+        <AuthContext.Provider value={{login, register, logout, isAuthenticated, user, error, setError}}>
             {children}
         </AuthContext.Provider>
     );

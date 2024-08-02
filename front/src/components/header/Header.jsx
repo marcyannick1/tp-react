@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import './header.css'
 import Accueuil from "../Accueuil";
 import Connection from '../Connection';
@@ -11,10 +11,11 @@ import { faUser, faSignInAlt, faSignOutAlt, faUserCog } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Link, Route, Routes } from "react-router-dom";
+import {AuthContext} from "../../context/authContext/index.jsx";
 
 export default function Header() {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
-
+    const {logout, isAuthenticated} = useContext(AuthContext)
     const handleMouseEnter = () => setDropdownVisible(true);
     const handleMouseLeave = () => setDropdownVisible(false);
   return (
@@ -26,7 +27,7 @@ export default function Header() {
             </div>
             <nav>
                 <ul>
-                    <li><Link to={"/accueuil"}><FontAwesomeIcon icon={faHome} className="" />  Acceuil</Link></li>
+                    <li><Link to={"/accueil"}><FontAwesomeIcon icon={faHome} className="" />  Acceuil</Link></li>
                     <li><Link to={"/ajoutcab"}> <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />  Cabinet</Link></li>
 
                     <li><a href="#"><FontAwesomeIcon icon={faConciergeBell} className="nav-icon" />  Services</a></li>
@@ -43,18 +44,24 @@ export default function Header() {
       <FontAwesomeIcon icon={faUser} className='user-icon' size="2x" />
       {isDropdownVisible && (
         <div className="dropdown-menu">
-          <div className="dropdown-item">
-            <FontAwesomeIcon icon={faSignInAlt} />
-            <Link className="nav-icons"  to={"/connection"}><span>Se Connecter</span></Link>
-          </div>
-          <div className="dropdown-item">
-            <FontAwesomeIcon icon={faSignOutAlt} />
-            <span>Se déconnecter</span>
-          </div>
-          <div className="dropdown-item">
-            <FontAwesomeIcon icon={faUserCog} />
-            <Link to={"/#"}><span>Voir le profil</span></Link>
-          </div>
+            {!isAuthenticated &&
+              <div className="dropdown-item">
+                <FontAwesomeIcon icon={faSignInAlt} />
+                <Link className="nav-icons"  to={"/connection"}><span>Se Connecter</span></Link>
+              </div>
+            }
+            {isAuthenticated &&
+                <>
+                  <div className="dropdown-item" onClick={logout}>
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                    <span>Se déconnecter</span>
+                  </div>
+                  <div className="dropdown-item">
+                    <FontAwesomeIcon icon={faUserCog} />
+                    <Link to={"/#"}><span>Voir le profil</span></Link>
+                  </div>
+                </>
+            }
         </div>
       )}
     </div>
