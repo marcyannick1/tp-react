@@ -16,13 +16,16 @@ export default function Profil() {
     poids: 0.0,
     taille: 0.0,
     userId: user.id,
-    cabinetId: 5,
+    cabinetId: null,
   });
+  
   const [editingAnimal, setEditingAnimal] = useState(null); 
   const [data, setData] = useState([]);
+  const [cabinets, setCabinets] = useState([]);
 
   useEffect(() => {
     fetchData();
+    fetchCabinets();
   }, []);
 
   const fetchData = () => {
@@ -45,7 +48,7 @@ export default function Profil() {
           poids: 0.0,
           taille: 0.0,
           userId: user.id,
-          cabinetId: 5
+          cabinetId: null
         });
       })
       .catch((error) => console.log(error));
@@ -74,6 +77,15 @@ export default function Profil() {
       .delete(`http://localhost:3000/animal/${id}`)
       .then(() => {
         fetchData();
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const fetchCabinets = () => {
+    axios
+      .get("http://localhost:3000/cabinet")
+      .then((response) => {
+        setCabinets(response.data);
       })
       .catch((error) => console.log(error));
   };
@@ -137,13 +149,16 @@ export default function Profil() {
                 value={animal.race}
                 onChange={handleChange}
               />
-              <input
-                type="number"
-                placeholder="Poids"
-                name="poids"
-                value={animal.poids}
-                onChange={handleChange}
-              />
+              <p>Poids:
+                <input
+                  type="number"
+                  placeholder="Poids"
+                  name="poids"
+                  value={animal.poids}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>Taille:
               <input
                 type="number"
                 placeholder="Taille"
@@ -151,6 +166,19 @@ export default function Profil() {
                 value={animal.taille}
                 onChange={handleChange}
               />
+              </p>
+              <select
+                name="cabinetId"
+                value={animal.cabinetId || ""}
+                onChange={(e) => setAnimal({ ...animal, cabinetId: parseInt(e.target.value) })}
+              >
+                <option value="">Sélectionner un cabinet</option>
+                {cabinets.map((cabinet) => (
+                  <option key={cabinet.id} value={cabinet.id}>
+                    {cabinet.nom}
+                  </option>
+                ))}
+              </select>
               <button className="add-animal-btn" onClick={addAnimal}>
                 Ajouter un animal
               </button>
@@ -169,6 +197,7 @@ export default function Profil() {
                   <p>Description: {animal.description}</p>
                   <p>Taille: {animal.taille}</p>
                   <p>Poids: {animal.poids}</p>
+                  <p>Cabinet: {cabinets.find(cabinet => cabinet.id === animal.cabinetId)?.nom}</p>
                   <button onClick={() => startEditing(animal)}>Edit</button>
                 </div>
                 {editingAnimal && editingAnimal.id === animal.id && (
@@ -187,6 +216,7 @@ export default function Profil() {
                       value={editingAnimal.race}
                       onChange={(e) => setEditingAnimal({ ...editingAnimal, race: e.target.value })}
                     />
+                    <p>Poids: 
                     <input
                       type="number"
                       placeholder="Poids"
@@ -194,6 +224,8 @@ export default function Profil() {
                       value={editingAnimal.poids}
                       onChange={(e) => setEditingAnimal({ ...editingAnimal, poids: parseFloat(e.target.value) })}
                     />
+                    </p>
+                    <p>Taille: 
                     <input
                       type="number"
                       placeholder="Taille"
@@ -201,6 +233,21 @@ export default function Profil() {
                       value={editingAnimal.taille}
                       onChange={(e) => setEditingAnimal({ ...editingAnimal, taille: parseFloat(e.target.value) })}
                     />
+                    </p>
+                    <p>Cabinet: 
+                    <select
+                      name="cabinetId"
+                      value={editingAnimal.cabinetId || ""}
+                      onChange={(e) => setEditingAnimal({ ...editingAnimal, cabinetId: parseInt(e.target.value) })}
+                    >
+                      <option value="">Sélectionner un cabinet</option>
+                      {cabinets.map((cabinet) => (
+                        <option key={cabinet.id} value={cabinet.id}>
+                          {cabinet.nom}
+                        </option>
+                      ))}
+                    </select>
+                    </p>
                     <button onClick={() => saveAnimal(animal.id)}>Sauvegarder</button>
                     <button onClick={cancelEditing}>Annuler</button>
                     <button onClick={() => deleteAnimal(animal.id)}>Supprimer</button>
