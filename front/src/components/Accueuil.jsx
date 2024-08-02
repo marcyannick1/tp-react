@@ -1,9 +1,10 @@
 // src/components/Accueuil.jsx
 
 import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import chien from '../assets/chien.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faUser, faPaw, faClinicMedical } from '@fortawesome/free-solid-svg-icons'; 
+import { faMapMarkerAlt, faUser, faPaw, faClinicMedical } from '@fortawesome/free-solid-svg-icons';
 import { faDog, faCat, faHorse, faSpider } from '@fortawesome/free-solid-svg-icons'; // Importez les icônes nécessaires
 import './Accueil.css';
 import medecineGenerale from '../assets/generale.jpeg'; // Importez les images pour chaque service
@@ -16,11 +17,16 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
 import laboratoire from '../assets/laboratoire.jpeg';
 import { AuthContext } from '../context/authContext';
+import {AuthContext} from "../context/authContext/index.jsx";
 
 
 export default function Accueuil() {
   // const {user} = useContext(AuthContext);
   // console.log(user);
+  const {user} = useContext(AuthContext)
+  if(user){
+  console.log(user.id)
+  }
   return (
     <div className='container'>
           <img src={badge} alt='Description' className='badge' />
@@ -85,7 +91,7 @@ export default function Accueuil() {
           <div className='service-card' style={{ backgroundImage: `url(${medecineInterne})` }}>
             <h3>Médecine Interne</h3>
           </div>
-          
+
           <div className='service-card' style={{ backgroundImage: `url(${laboratoire})` }}>
             <h3>Laboratoire</h3>
           </div>
@@ -122,7 +128,7 @@ export default function Accueuil() {
             </div>
         </div>
       </div>
-     
+
     </div>
   );
 }

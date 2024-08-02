@@ -107,6 +107,37 @@ app.get('/user/:id', async (req, res) => {
     }
 })
 
+app.delete('/user/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const animal = await prisma.user.delete({
+            where: {id: parseInt(id)}
+        })
+
+        res.status(200).send("Utilisateur supprimé avec succès")
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
+app.put('/user/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const user = await prisma.user.update({
+            where: {id: parseInt(id)},
+            data: req.body,
+        })
+
+        res.status(200).json(user)
+    } catch (e) {
+        console.error(e)
+        res.status(500).json(e)
+    }
+})
+
 app.get('/user/:id/animaux', async (req, res) => {
     const {id} = req.params
     try {
@@ -245,6 +276,25 @@ app.delete('/animal/:id', async (req, res) => {
         res.status(200).send("Animal supprimé avec succès")
     } catch (e) {
         console.error(e)
+        res.status(500).json(e)
+    }
+})
+
+app.post('/message', async (req, res) => {
+    const {nom, prenom, email, telephone, message} = req.body;
+
+    try {
+        const data = await prisma.message.create({
+            data: {
+                nom,
+                prenom,
+                email,
+                telephone,
+                message
+            }
+        })
+        res.status(201).json(data)
+    } catch (e) {
         res.status(500).json(e)
     }
 })
