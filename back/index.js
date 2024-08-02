@@ -248,3 +248,22 @@ app.delete('/animal/:id', async (req, res) => {
         res.status(500).json(e)
     }
 })
+
+app.post('/message', async (req, res) => {
+    const {nom, prenom, email, telephone, message} = req.body;
+
+    try {
+        const data = await prisma.message.create({
+            data: {
+                nom,
+                prenom,
+                email,
+                telephone,
+                message
+            }
+        })
+        res.status(201).json(data)
+    } catch (e) {
+        res.status(500).json(e)
+    }
+})
