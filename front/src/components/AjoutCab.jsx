@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./ajoutcab.css";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faUser, faPaw, faClinicMedical } from '@fortawesome/free-solid-svg-icons'; 
 
 export default function AjoutCab() {
   const [data, setData] = useState([]);
@@ -100,14 +102,31 @@ export default function AjoutCab() {
               </>
             ) : (
               <>
-                <p className="card-title">{cab.nom}</p>
+                <div className="infos-card cardone">
+              <div className="nomCabinet">
+              <p><FontAwesomeIcon icon={faClinicMedical} className="iconsss" /></p>
+            <p className="text texts">{cab.nom}</p>
+              </div>
+              <div className="adresseCabinet">
+            <p><FontAwesomeIcon icon={faMapMarkerAlt} className="iconsss" /></p>
+
+              <p className="text">{cab.adresse}</p>
+              </div>
+            <div className="mesButtons">
+            <button onClick={() => startEditing(cab)}>Modifier</button>
+            <button onClick={() => deleteCab(cab.id)}>Supprimer</button>
+            </div>
+
+          </div>
+                {/* <p className="card-title">{cab.nom}</p>
                 <p className="card-des">{cab.adresse}</p>
                 <button onClick={() => startEditing(cab)}>Modifier</button>
-                <button onClick={() => deleteCab(cab.id)}>Supprimer</button>
+                <button onClick={() => deleteCab(cab.id)}>Supprimer</button> */}
               </>
             )}
           </div>
         ))}
+         
       </div>
 
     </div>

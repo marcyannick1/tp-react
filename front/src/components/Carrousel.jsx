@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
-import { faBone } from '@fortawesome/free-solid-svg-icons'; // Importer l'icône d'os
-import './Carrousel.css'; // Assurez-vous que le CSS est importé
+import { faBone } from '@fortawesome/free-solid-svg-icons'; 
+import './Carrousel.css'; 
 import doc8 from '../assets/doc8.jpeg';
 import doc9 from '../assets/doc9.jpeg';
 import doc10 from '../assets/doc10.jpeg';

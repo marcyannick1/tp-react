@@ -16,6 +16,8 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
 import laboratoire from '../assets/laboratoire.jpeg';
 import { AuthContext } from '../context/authContext';
+import { Link, Route, Routes } from "react-router-dom";
+
 
 
 export default function Accueuil() {
@@ -41,14 +43,24 @@ export default function Accueuil() {
               <span>25 Rue de la Clinique, 75012 Paris</span>
             </div>
             <div className="buttons">
+            <Link to={"/rdv"}>
               <button className="stylish-button">
                 <FontAwesomeIcon icon={faPaw} className="paw-icon" />
                 Prendre un RDV
               </button>
-              <button className="add-clinic-button">
+              </Link>
+            <Link to={"/ajoutcab"}>
+            <button className="add-clinic-button">
                 <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />
                 Ajouter un cabinet
               </button>
+            </Link>
+
+              {/* <Link to={/ajoutcab}> */}
+
+              
+              {/* </Link> */}
+
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 90px auto;
   gap: 40px;
   background-color: #1a5e78;
@@ -14,7 +15,7 @@
   border-radius: 10px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée */
-
+  height: 700px;
   padding: 0px 40px; /* Ajout de padding pour l'espacement interne */
   box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur et hauteur totales */
 }
@@ -27,8 +28,7 @@
 }
 .image {
   width: 50%;
-  height: 100%;
-  margin-top:40px ;
+  height: min-content;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
@@ -134,7 +134,7 @@
 }
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 500px;
   margin: auto;
