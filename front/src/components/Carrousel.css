@@ -1,0 +1,70 @@
+/* Carousel.css */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-card {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 70px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel-profile {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .carousel-rating .star {
+    color: #f39c12;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-button.prev {
+    left: 8.5em;
+  }
+  
+  .carousel-button.next {
+    right: 8.5em;
+  }
+  .carousel-rating .bone {
+    color: #f39c12; /* Couleur pour les os */
+    transform: rotate(33deg);
+    padding-right: 5px;
+  }

@@ -16,6 +16,8 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
 import laboratoire from '../assets/laboratoire.jpeg';
 import { AuthContext } from '../context/authContext';
+import { Link, Route, Routes } from "react-router-dom";
+
 
 
 export default function Accueuil() {
@@ -45,14 +47,24 @@ export default function Accueuil() {
               <span>25 Rue de la Clinique, 75012 Paris</span>
             </div>
             <div className="buttons">
+            <Link to={"/rdv"}>
               <button className="stylish-button">
                 <FontAwesomeIcon icon={faPaw} className="paw-icon" />
                 Prendre un RDV
               </button>
-              <button className="add-clinic-button">
+              </Link>
+            <Link to={"/ajoutcab"}>
+            <button className="add-clinic-button">
                 <FontAwesomeIcon icon={faClinicMedical} className="clinic-icon" />
                 Ajouter un cabinet
               </button>
+            </Link>
+
+              {/* <Link to={/ajoutcab}> */}
+
+              
+              {/* </Link> */}
+
             </div>
           </div>
         </div>
@@ -95,6 +107,28 @@ export default function Accueuil() {
           </div>
           </div>
         </div>
+        <div className="sous-titre3">
+            <p className='slogans'>Prenez soin de votre animal</p>
+            <div className="card-section">
+              <div className="car">
+                <img src="https://i.pinimg.com/564x/ed/95/ba/ed95bac8511ccf5bead884ef348bc6a7.jpg" alt="Image 1" className="card-image" />
+                <p className="card-text">Le furet</p>
+              </div>
+              <div className="car">
+                <img src="https://i.pinimg.com/564x/7e/d6/e3/7ed6e32a45823f433d54e6b1b77e090c.jpg" alt="Image 2" className="card-image" />
+                <p className="card-text">Les races de Chat</p>
+              </div>
+              <div className="car">
+                <img src="https://i.pinimg.com/564x/07/49/72/074972b48c85a667344b7ecba36eb3f4.jpg" alt="Image 3" className="card-image" />
+                <p className="card-text">La croissance de votre Chiot. Evitez les erreurs</p>
+              </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ducimus quasi architecto facere dolores laborum aperiam voluptate perferendis necessitatibus, enim eligendi? Officia minus obcaecati officiis odit nostrum recusandae, eum optio quas culpa omnis quasi aliquid totam maxime amet exercitationem, aliquam modi ullam eius esse qui nobis, atque repudiandae quaerat. Cumque tempore facilis molestias atque accusantium eos magni, et similique velit? Natus dolores cum sit tempore delectus nihil unde magni enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, expedita a est odit ex ea provident repellendus vitae quis natus commodi, recusandae laboriosam ducimus nesciunt vel accusamus harum officiis nihil!</p>
+
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> <br></br>Neque ducimus quasi architecto facere dolores laborum aperiam voluptate perferendis necessitatibus, enim eligendi? Officia minus obcaecati officiis odit nostrum recusandae, eum optio quas culpa omnis quasi aliquid totam maxime amet exercitationem, aliquam modi ullam eius esse qui nobis, atque repudiandae quaerat. Cumque tempore facilis molestias atque accusantium eos magni, et similique velit? Natus dolores cum sit tempore delectus nihil unde magni enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, expedita a est odit ex ea provident repellendus vitae quis natus commodi,  recusandae laboriosam ducimus nesciunt vel accusamus harum officiis nihil!</p>
+
+          </div>
         <div className="info-section">
           <div className="informations">
           <div className="info-card card1">

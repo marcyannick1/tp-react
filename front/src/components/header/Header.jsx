@@ -72,6 +72,11 @@ export default function Header() {
                 <FontAwesomeIcon className='iconphone' icon={faPhone} size="2x" />
               <a className='telephone' href="tel:0123456789">01 23 45 67 89</a>
           </div>
+          <div className="dropdown-item">
+          <FontAwesomeIcon icon={faUserCog} />
+          <Link to={"/profil"} className="nav-icons" >
+           <span>Voir le profil</span>
+            </Link>
           </div>
       </div>
     </header>
